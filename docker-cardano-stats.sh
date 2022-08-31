@@ -1,4 +1,4 @@
-container=$(docker ps -q --filter ancestor=cardano-node)
+container=$(docker ps -q --filter ancestor=cardano-node-preprod)
 
 echo -e "\n### Printing cardano-cli version ###\n"
 docker exec $container /usr/local/bin/cardano-cli --version

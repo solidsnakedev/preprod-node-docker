@@ -122,11 +122,16 @@ ENV CARDANO_NODE_SOCKET_PATH="/node/ipc/node.socket"
 ENV TESTNET_MAGIC=1
 
 # Create keys, ipc, data, scripts, logs folders
-RUN mkdir -p /node/keys /node/addresses /node/ipc /node/logs /node/transactions /node/plutus-scripts /node/native-scripts
+RUN mkdir -p /node/logs /node/ipc /node/keys /node/addresses /node/transactions /node/plutus-scripts /node/native-scripts /node/data
+
+# Dockerfile
+# add this and below command will run without cache
+ARG CACHEBUST=1
 
 # Copy developer scripts
-RUN git clone https://github.com/solidsnakedev/cardano-dev-scripts.git 
-RUN ln -s cardano-dev-scripts/*.sh /usr/local/bin
+RUN git clone https://github.com/solidsnakedev/cardano-dev-scripts.git
+# Create symbolic links
+RUN ln -s /cardano-dev-scripts/*.sh /usr/local/bin
 
 # Set executable permits
 RUN /bin/bash -c "chmod +x /usr/local/bin/*.sh"

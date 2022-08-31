@@ -12,3 +12,4 @@ services:
       - ./node/transactions/:/node/transactions
       - ./node/plutus-scripts:/node/plutus-scripts
       - ./node/native-scripts:/node/native-scripts
+      - ./node/data:/node/data

@@ -21,7 +21,7 @@ DOCKER_BUILDKIT=1 docker compose build
 or 
 
 ```
-DOCKER_BUILDKIT=1 docker compose build --build-arg TAG=1.35.2
+DOCKER_BUILDKIT=1 docker compose build --build-arg CACHEBUST=$(date +%s)
 ```
 
 ## 4. Running container :smiley:
@@ -92,11 +92,11 @@ Once you're inside the container you can run `cardano-node` or `cardano-cli` com
 
 *Note: The environment variable `$TESNET_MAGIC` is set in `Dockerfile`*
 ```
-query-tip.sh 
+cli-query-tip.sh 
 ```
 Example
 ```
-root@a24cc0944179:/# query-tip.sh 
+root@a24cc0944179:/# cli-query-tip.sh 
 {
     "block": 3688353,
     "epoch": 215,
