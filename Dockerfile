@@ -136,5 +136,8 @@ RUN ln -s /cardano-dev-scripts/*.sh /usr/local/bin
 # Set executable permits
 RUN /bin/bash -c "chmod +x /usr/local/bin/*.sh"
 
+# Remove when hardfork to babbage
+RUN sed -i 's/babbage/alonzo/g' /usr/local/bin/*.sh
+
 # Run cardano-node at the startup
 CMD [ "/usr/local/bin/run-cardano-node.sh" ]
