@@ -1,0 +1,14 @@
+services:
+  cardano-node-preprod:
+    build: .
+    image: cardano-node-preprod
+    container_name: cardano-node-preprod
+    volumes:
+      - ./node/db/:/node/db
+      - ./node/logs/:/node/logs
+      - ./node/ipc/:/node/ipc
+      - ./node/keys/:/node/keys
+      - ./node/addresses/:/node/addresses
+      - ./node/transactions/:/node/transactions
+      - ./node/plutus-scripts:/node/plutus-scripts
+      - ./node/native-scripts:/node/native-scripts
